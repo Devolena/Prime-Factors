@@ -13,13 +13,18 @@ void factor(ll n){
 		cout<<"2 ";
 		n /= 2;
 	}
-	for(ll i=3;i<sqrt(n);i++){
+	ll i=3;
+	for(;;){
+		if(i<sqrt(n)){
+			break;
+		}
 		while(n%i==0){
 			cout<<i<<" ";
 			n /= i;
 		}
+		i += 2;
 	}
-	if(n>1){
+	if(n > 1){
 		cout<<n<<endl;
 	}
 	return;
@@ -29,8 +34,11 @@ int main(){
 	ios_base::sync_with_stdio(false);
 	cin.tie(0);
 	cout.tie(0);
-	ll n;
-	inp(n);
-	factor(n);
+	ll t;
+	while(t--){
+		ll n;
+		inp(n);
+		factor(n);
+	}
 	return 0;
 }
