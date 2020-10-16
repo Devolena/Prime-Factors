@@ -13,16 +13,20 @@ void factor(ll n){
 		cout<<"2 ";
 		n /= 2;
 	}
-	ll i=3;
-	for(;;){
-		if(i<sqrt(n)){
-			break;
+	while(n%3==0){
+		cout<<"3 ";
+		n /= 3;
+	}
+	for(ll i=6;i<sqrt(n);i += 6){
+		
+		while(n % ( i - 1 ) == 0 ){
+			cout<<i-1<<" ";
+			n /= ( i - 1 );
 		}
-		while(n%i==0){
-			cout<<i<<" ";
-			n /= i;
+		while(n % ( i + 1 ) == 0 ){
+			cout<<i+1<<" ";
+			n /= ( i + 1 );
 		}
-		i += 2;
 	}
 	if(n > 1){
 		cout<<n<<endl;
